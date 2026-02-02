@@ -1,0 +1,123 @@
+
+
+/* ===== GRADIENT BACKGROUND MOTION ===== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: white;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* ===== HERO SECTION ===== */
+  .hero {
+    text-align: center;
+    padding: 120px 20px;
+  }
+  
+  /* ===== TEXT FADE + SLIDE ANIMATION ===== */
+  .tagline {
+    font-size: 3rem;
+    animation: fadeSlide 1.5s ease-in-out;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    min-height: 30px;
+  }
+  
+  /* Fade + slide keyframes */
+  @keyframes fadeSlide {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ===== CTA BUTTONS WITH GLOW + ACCESSIBILITY ===== */
+  .cta-buttons {
+    margin-top: 20px;
+  }
+  
+  .primary-btn {
+    background: #00c6ff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .primary-btn:hover {
+    box-shadow: 0px 0px 15px #00c6ff;
+  }
+  
+  .secondary-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .secondary-btn:hover {
+    box-shadow: 0px 0px 15px white;
+  }
+  
+  /* Keyboard focus (ACCESSIBILITY) */
+  button:focus {
+    outline: 2px solid yellow;
+  }
+  
+  /* ===== PRODUCT HIGHLIGHTS ===== */
+  .features {
+    text-align: center;
+    padding: 80px 20px;
+    background: #0b1620;
+  }
+  
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  /* Feature cards */
+  .feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s, opacity 0.6s, transform 0.6s;
+  }
+  
+  /* Hover micro-interaction */
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* ===== SCROLL ANIMATION ===== */
+  .hidden {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  
+  .show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
