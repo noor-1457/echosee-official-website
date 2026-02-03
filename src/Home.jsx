@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"; // <-- ROUTING CONNECTED
 import "./Home.css";
 
 
+
 function Home() {
   const navigate = useNavigate();
   const featureRef = useRef([]);
