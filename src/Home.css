@@ -1,0 +1,168 @@
+/* ===== GLOBAL BACKGROUND ===== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: white;
+  }
+  
+  /* Gradient motion */
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* ===== MAIN CONTAINER (CENTER FIX) ===== */
+  .home {
+    width: 100%;
+    text-align: center;        /* <-- MAIN FIX */
+  }
+  
+  /* ===== HERO SECTION (CENTERED PROPERLY) ===== */
+  .hero {
+    min-height: 100vh;         /* full screen height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;       /* horizontal center */
+    justify-content: center;   /* vertical center */
+    text-align: center;
+    padding: 80px 20px;
+  }
+  
+  /* Hero text animation */
+  .tagline {
+    font-size: clamp(2rem, 5vw, 3.2rem); /* responsive font */
+    animation: fadeSlide 1.5s ease-in-out;
+    margin-bottom: 10px;
+  }
+  
+  .subtitle {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    min-height: 30px;
+  }
+  
+  /* Fade + slide keyframes */
+  @keyframes fadeSlide {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ===== CTA BUTTONS ===== */
+  .cta-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;  /* <-- CENTER FIX */
+    flex-wrap: wrap;          /* mobile fix */
+  }
+  
+  .primary-btn {
+    background: #00c6ff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 25px;
+  }
+  
+  .primary-btn:hover {
+    box-shadow: 0px 0px 15px #00c6ff;
+  }
+  
+  .secondary-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 25px;
+  }
+  
+  .secondary-btn:hover {
+    box-shadow: 0px 0px 15px white;
+  }
+  
+  /* Accessibility focus */
+  button:focus {
+    outline: 2px solid yellow;
+  }
+  
+  /* ===== PRODUCT HIGHLIGHTS ===== */
+  .features {
+    text-align: center;
+    padding: 80px 20px;
+    background: #0b1620;
+  }
+  
+  /* RESPONSIVE GRID */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;  /* <-- CENTER FIX */
+    padding: 0 10px;
+  }
+  
+  /* Feature cards */
+  .feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s, opacity 0.6s;
+    text-align: center;  /* <-- CENTER FIX */
+  }
+  
+  /* Hover micro-interaction */
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* ===== SCROLL ANIMATION ===== */
+  .hidden {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  
+  .show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* ================= RESPONSIVE BREAKPOINTS ================= */
+  
+  /* Tablet */
+  @media (max-width: 900px) {
+    .feature-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 600px) {
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .primary-btn,
+    .secondary-btn {
+      width: 80%;
+    }
+  }
+  
