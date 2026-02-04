@@ -1,18 +1,18 @@
 import React, { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom"; // <-- ROUTING CONNECTED
-import "./Home.css";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
   const featureRef = useRef([]);
 
-  /* ===== SCROLL ANIMATION LOGIC ===== */
+  /* ===== SCROLL ANIMATION ===== */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+            entry.target.classList.remove("opacity-0", "translate-y-10");
+            entry.target.classList.add("opacity-100", "translate-y-0");
           }
         });
       },
@@ -26,10 +26,11 @@ function Home() {
     return () => observer.disconnect();
   }, []);
 
-  /* ===== TYPING EFFECT FOR SUBTITLE ===== */
+  /* ===== TYPING EFFECT ===== */
   useEffect(() => {
     const text = "Real-time subtitles for the hearing impaired";
     let i = 0;
+
     const typingElement = document.getElementById("typing-text");
 
     const typing = setInterval(() => {
@@ -45,77 +46,160 @@ function Home() {
   }, []);
 
   return (
-    <div className="home">
+    <div
+      className="
+      min-h-screen
+      text-white
+      font-sans
+      bg-gradient-to-r
+      from-[#0f2027]
+      via-[#203a43]
+      to-[#2c5364]
+      bg-[length:400%_400%]
+      animate-gradient
+      text-center
+    "
+    >
+      {/* ================= HERO SECTION ================= */}
 
-      {/* ===================== HERO SECTION ===================== */}
-      {/* IMPLEMENTED:
-          - Gradient background motion
-          - Text fade + slide animation
-          - Typing subtitle animation
-          - CTA hover glow
-          - Keyboard focus accessibility
-          - Routing connected
-      */}
-
-      <section className="hero">
-
-        <h1 className="tagline">
+      <section
+        className="
+        min-h-screen
+        flex
+        flex-col
+        items-center
+        justify-center
+        px-5
+        py-20
+        text-center
+      "
+      >
+        <h1
+          className="
+          text-[clamp(2rem,5vw,3.2rem)]
+          font-bold
+          mb-3
+          animate-fadeSlide
+        "
+        >
           See What You Cannot Hear
         </h1>
 
-        <p className="subtitle" id="typing-text"></p>
+        <p
+          id="typing-text"
+          className="
+          text-[clamp(1rem,3vw,1.2rem)]
+          min-h-[30px]
+        "
+        ></p>
 
-        <div className="cta-buttons">
+        {/* CTA Buttons */}
 
+        <div
+          className="
+          mt-5
+          flex
+          gap-4
+          justify-center
+          flex-wrap
+          max-sm:flex-col
+          max-sm:items-center
+        "
+        >
           <button
-            className="primary-btn"
-            aria-label="Pre Order Now"
-            onClick={() => navigate("/preorder")}   // <-- ROUTING CONNECTED
+            className="
+            bg-sky-400
+            px-6
+            py-3
+            rounded-full
+            transition
+            hover:shadow-[0_0_15px_#00c6ff]
+            focus:outline-none
+            focus:ring-2
+            focus:ring-yellow-400
+            max-sm:w-[80%]
+          "
+            onClick={() => navigate("/preorder")}
           >
             Pre-Order Now
           </button>
 
           <button
-            className="secondary-btn"
-            aria-label="Learn More"
-            onClick={() => navigate("/product")}   // <-- ROUTING CONNECTED
+            className="
+            border
+            border-white
+            px-6
+            py-3
+            rounded-full
+            transition
+            hover:shadow-[0_0_15px_white]
+            focus:outline-none
+            focus:ring-2
+            focus:ring-yellow-400
+            max-sm:w-[80%]
+          "
+            onClick={() => navigate("/product")}
           >
             Learn More
           </button>
-
         </div>
       </section>
 
-      {/* ================= PRODUCT HIGHLIGHTS ================= */}
-      {/* IMPLEMENTED:
-          - Feature cards grid
-          - Micro-interaction hover lift
-          - SCROLL reveal animation added
-      */}
+      {/* ================= FEATURES ================= */}
 
-      <section className="features">
+      <section
+        className="
+        py-20
+        px-5
+        bg-[#0b1620]
+        text-center
+      "
+      >
+        <h2 className="text-3xl font-semibold mb-10">
+          Product Highlights
+        </h2>
 
-        <h2>Product Highlights</h2>
+        <div
+          className="
+          grid
+          grid-cols-3
+          gap-5
+          max-w-[1000px]
+          mx-auto
+          px-3
 
-        <div className="feature-grid">
-
+          max-[900px]:grid-cols-2
+          max-[600px]:grid-cols-1
+        "
+        >
           {[
             "Real-time subtitles on AR lens",
             "Adjustable font size",
             "Emoji-based emotion display",
             "Multilingual support",
             "Works offline with AI chip",
-            "Battery life: 10–12 hours"
+            "Battery life: 10–12 hours",
           ].map((feature, index) => (
             <div
               key={index}
               ref={(el) => (featureRef.current[index] = el)}
-              className="feature-card hidden"
+              className="
+              bg-white/10
+              p-5
+              rounded-lg
+              text-center
+              transition
+              duration-300
+
+              opacity-0
+              translate-y-10
+
+              hover:-translate-y-1
+            "
             >
               {feature}
             </div>
           ))}
-
         </div>
       </section>
     </div>
