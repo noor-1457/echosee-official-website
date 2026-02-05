@@ -1,8 +1,12 @@
 // HeroSection.jsx
 import React from "react";
 import hero from "../assets/hero.png";
+import { motion } from "framer-motion";
 
 const Hero = () => {
+  const text =
+    "Experience real-time subtitles and futuristic AR smart glasses.";
+
   return (
     <section
       id="hero"
@@ -14,16 +18,32 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4">
-        <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white">
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl font-bold mb-6"
+        >
           EchoSee Smart Glasses
-        </h1>
+        </motion.h1>
 
-        <p className="text-lg md:text-xl mb-6 text-gray-200 max-w-xl mx-auto">
-          Experience the future of AR smart glasses with live subtitles and
-          futuristic design.
-        </p>
+        <div className="flex flex-wrap gap-2">
+          {text.split(" ").map((word, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.08 }}
+              viewport={{ once: true }}
+              className="text-lg text-gray-200"
+            >
+              {word}
+            </motion.span>
+          ))}
+        </div>
 
-        <button className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
+        <button className="mt-5 px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
           Watch Demo
         </button>
       </div>
