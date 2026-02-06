@@ -1,7 +1,14 @@
 import React from "react";
+import { motion } from "framer-motion";
+
 import product from "../assets/product.webp";
 import video from "../assets/productVideoOptimized.mp4";
-import { motion } from "framer-motion";
+
+import e1 from "../assets/e-1.png";
+import e2 from "../assets/e-2.webp";
+import e3 from "../assets/e-3.png";
+import e4 from "../assets/e-4.webp";
+import e5 from "../assets/e-5.png";
 
 const listItems = [
   "Supports 1080P HD video recording for hands-free adventures",
@@ -11,13 +18,15 @@ const listItems = [
   "Fashion-forward design with automatic color-changing blue-light lenses",
 ];
 
+const emojiIcons = [e1, e2, e3, e4, e5];
+
 const Description = () => {
   return (
     <>
-      {/* ================= PRODUCT DESCRIPTION SECTION ================= */}
+      {/* ================= PRODUCT DESCRIPTION ================= */}
       <section className="w-full px-20 py-20 bg-[#0f2027] text-white">
         <div className="flex gap-14 items-start">
-          {/* Product Image */}
+          {/* Image */}
           <div className="w-1/2 flex justify-center">
             <motion.img
               src={product}
@@ -30,7 +39,7 @@ const Description = () => {
             />
           </div>
 
-          {/* Text Content */}
+          {/* Text */}
           <div className="w-1/2">
             <motion.h1
               className="text-4xl font-bold mb-6"
@@ -47,7 +56,7 @@ const Description = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: 0.1 }}
+              transition={{ duration: 0.9 }}
             >
               AI Smart Glasses with 1080P HD Camera, Real-Time AI Translation,
               Bluetooth Audio and Hands-Free Video Recording — designed for
@@ -87,7 +96,7 @@ const Description = () => {
         {/* ================= ABOUT SECTION ================= */}
         <div className="mt-20 max-w-4xl">
           <motion.h2
-            className="text-3xl font-bold mb-6"
+            className="text-3xl font-bold mb-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -96,33 +105,59 @@ const Description = () => {
             About this item
           </motion.h2>
 
-          <ul className="list-disc ml-6 space-y-4 text-gray-300">
+          <ul className="space-y-6">
             {listItems.map((item, index) => (
               <motion.li
                 key={index}
-                initial={{ x: -100, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
+                className="flex gap-4 items-start text-gray-300"
+                initial={{ opacity: 0, x: -60 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{
-                  type: "spring",
-                  stiffness: 60,
-                  damping: 22,
-                  delay: index * 0.15,
-                }}
+                transition={{ duration: 0.7, delay: index * 0.15 }}
               >
-                {item}
+                {/* Emoji */}
+                <motion.img
+                  src={emojiIcons[index]}
+                  alt="feature icon"
+                  className="w-8 h-8 mt-1"
+                  initial={{ scale: 0, rotate: -20 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 120,
+                    damping: 12,
+                    delay: index * 0.15,
+                  }}
+                />
+
+                {/* Text */}
+                <span>{item}</span>
               </motion.li>
             ))}
           </ul>
         </div>
       </section>
 
-      {/* ================= VIDEO SECTION ================= */}
-      <section className="w-full py-20 flex justify-center bg-black">
+      {/* ================= DEMO VIDEO ================= */}
+      <motion.h1
+        className="text-3xl font-bold py-6 flex justify-center bg-[#0b1620] text-white"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        Demo
+      </motion.h1>
+
+      <section
+        id="demo"
+        className="w-full py-12 flex justify-center bg-[#0b1620]"
+      >
         <motion.video
           src={video}
           controls
-          className="w-full max-w-6xl rounded-xl shadow-2xl"
+          className="w-full max-w-5xl h-[400px] object-cover rounded-xl shadow-2xl"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}

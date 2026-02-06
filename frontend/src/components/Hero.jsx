@@ -43,9 +43,22 @@ const Hero = () => {
           ))}
         </div>
 
-        <button className="mt-5 px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
-          Watch Demo
-        </button>
+        <a href="#demo">
+          <button
+            className="bg-sky-400
+      px-6
+      py-3
+      mt-5
+      rounded-full
+      transition
+      hover:shadow-[0_0_15px_#00c6ff]
+      focus:outline-none
+      focus:ring-2
+      focus:ring-yellow-400"
+          >
+            Watch Demo
+          </button>
+        </a>
       </div>
     </section>
   );
