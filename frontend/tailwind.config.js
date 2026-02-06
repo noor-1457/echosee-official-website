@@ -6,7 +6,19 @@ module.exports = {
         gradient: "gradientBG 10s ease infinite",
         fadeSlide: "fadeSlide 1.5s ease-in-out",
       },
-
+       theme: {
+    extend: {
+      animation: {
+        scroll: "scroll 20s linear infinite",
+      },
+      keyframes: {
+        scroll: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+      },
+    },
+  },
       keyframes: {
         gradientBG: {
           "0%": { backgroundPosition: "0% 50%" },

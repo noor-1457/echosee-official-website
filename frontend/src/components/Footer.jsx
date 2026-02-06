@@ -82,7 +82,7 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Enter email"
-              className="w-full px-4 py-2 rounded-l-md text-black focus:outline-none"
+              className="w-full px-4 py-2 rounded-l-md text-black border focus:outline-none"
             />
 
             <button className="bg-[#00c6ff] px-4 rounded-r-md hover:opacity-90">
