@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import HardSpecs from "./hard-specs";
 
 import product from "../assets/product.webp";
 import video from "../assets/productVideoOptimized.mp4";
@@ -34,7 +35,7 @@ const Description = () => {
               className="w-full max-w-lg rounded-xl shadow-2xl"
               initial={{ opacity: 0, x: 80 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 1 }}
             />
           </div>
@@ -45,7 +46,7 @@ const Description = () => {
               className="text-4xl font-bold mb-6"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.8 }}
             >
               EchoSee AI Smart Glasses
@@ -55,7 +56,7 @@ const Description = () => {
               className="text-gray-300 mb-8 leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.9 }}
             >
               AI Smart Glasses with 1080P HD Camera, Real-Time AI Translation,
@@ -68,7 +69,7 @@ const Description = () => {
               className="w-full border border-gray-600 border-collapse text-sm"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 1 }}
             >
               <tbody>
@@ -99,7 +100,7 @@ const Description = () => {
             className="text-3xl font-bold mb-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
             About this item
@@ -112,7 +113,7 @@ const Description = () => {
                 className="flex gap-4 items-start text-gray-300"
                 initial={{ opacity: 0, x: -60 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.3 }}
                 transition={{ duration: 0.7, delay: index * 0.15 }}
               >
                 {/* Emoji */}
@@ -122,7 +123,7 @@ const Description = () => {
                   className="w-8 h-8 mt-1"
                   initial={{ scale: 0, rotate: -20 }}
                   whileInView={{ scale: 1, rotate: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false, amount: 0.3 }}
                   transition={{
                     type: "spring",
                     stiffness: 120,
@@ -138,13 +139,15 @@ const Description = () => {
           </ul>
         </div>
       </section>
+      {/* ================= HARDWARE SPECS ================= */}
+      <HardSpecs />
 
       {/* ================= DEMO VIDEO ================= */}
       <motion.h1
         className="text-3xl font-bold py-6 flex justify-center bg-[#0b1620] text-white"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.8 }}
       >
         Demo
@@ -160,7 +163,7 @@ const Description = () => {
           className="w-full max-w-5xl h-[400px] object-cover rounded-xl shadow-2xl"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 1 }}
         />
       </section>
