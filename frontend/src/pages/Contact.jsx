@@ -95,7 +95,7 @@ const Contact = () => {
             <label className="block mb-2 text-sm text-gray-300">Message</label>
             <textarea
               rows="5"
-              placeholder="Write your message..."
+              placeholder="Write your message...."
               className="w-full px-4 py-3 rounded-lg bg-transparent border border-gray-600 focus:outline-none focus:border-sky-400"
             />
           </div>
